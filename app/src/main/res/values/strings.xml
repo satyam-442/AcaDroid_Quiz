@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AcaDroid Quiz</string>
+    <string name="bannerId">ca-app-pub-7011058460306280/5455598046</string>
+    <string name="bannerIdDemo">ca-app-pub-3940256099942544/6300978111</string>
+</resources>
