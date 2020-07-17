@@ -3,7 +3,7 @@
     package="com.example.acadroidquiz">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,28 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BookmarkActivity"></activity>
-        <activity android:name=".ScoreActivity" />
-        <activity android:name=".QuestionsActivity" />
-        <activity android:name=".SetsActivity" />
-        <activity android:name=".CategoriesActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Authentication.RegisterActivity"></activity>
+        <activity android:name=".Authentication.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".BookmarkActivity" />
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".QuestionsActivity" />
+        <activity android:name=".SetsActivity" />
+        <activity android:name=".CategoriesActivity" />
+        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-        <!-- Sample AdMob App ID DEMO: ca-app-pub-3940256099942544~3347511713 -->
+            android:resource="@array/preloaded_fonts" /> <!-- Sample AdMob App ID DEMO: ca-app-pub-3940256099942544~3347511713 -->
         <!-- Sample AdMob App ID REAL: ca-app-pub-7011058460306280/5455598046 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>

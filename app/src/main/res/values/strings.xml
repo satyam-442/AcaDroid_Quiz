@@ -2,4 +2,15 @@
     <string name="app_name">AcaDroid Quiz</string>
     <string name="bannerId">ca-app-pub-7011058460306280/5455598046</string>
     <string name="bannerIdDemo">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="booki">BookI</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="read_it_together">Read it together</string>
+    <string name="skip">Skip</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="forget_password">Forget Password.?</string>
+
 </resources>

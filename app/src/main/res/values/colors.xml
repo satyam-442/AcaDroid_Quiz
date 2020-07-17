@@ -2,8 +2,14 @@
 <resources>
     <color name="colorPrimary">#111A21</color>
     <color name="colorPrimaryDark">#111A21</color>
+    <color name="colorPrimary1">#3F51B5</color>
+    <color name="colorPrimaryDark1">#303F9F</color>
     <color name="colorAccent">#ffffff</color>
     <color name="white">#ffffff</color>
     <color name="red">#A9081C</color>
     <color name="grey">#716B6D</color>
+    <color name="colorBackground">#333C46</color>
+    <color name="colorSplashText">#F0F0F0</color>
+    <color name="colorProgressBar">#FFCE511C</color>
+    <color name="colorTextView">#83898E</color>
 </resources>
