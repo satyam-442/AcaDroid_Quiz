@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.acadroidquiz.CategoriesActivity;
-import com.example.acadroidquiz.Modal.CategoryM;
+import com.example.acadroidquiz.Modal.CategoryModel;
 import com.example.acadroidquiz.R;
 import com.example.acadroidquiz.SetsActivity;
 
@@ -21,9 +21,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Category extends RecyclerView.Adapter<Category.viewHolder> {
 
-    private List<CategoryM> categoryList;
+    private List<CategoryModel> categoryList;
 
-    public Category(List<CategoryM> categoryList) {
+    public Category(List<CategoryModel> categoryList) {
         this.categoryList = categoryList;
     }
 
@@ -36,7 +36,7 @@ public class Category extends RecyclerView.Adapter<Category.viewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        holder.setData(categoryList.get(position).getUrll(),categoryList.get(position).getNamee(), categoryList.get(position).getSetss());
+        holder.setData(categoryList.get(position).getUrll(),categoryList.get(position).getNamee(), position);
     }
 
     @Override
@@ -56,7 +56,7 @@ public class Category extends RecyclerView.Adapter<Category.viewHolder> {
             title = itemView.findViewById(R.id.title);
         }
 
-        private void setData(String url, final String title, final int sets){
+        private void setData(String url, final String title, final int position){
             Glide.with(itemView.getContext()).load(url).into(imageView);
             this.title.setText(title);
 
@@ -65,7 +65,7 @@ public class Category extends RecyclerView.Adapter<Category.viewHolder> {
                 public void onClick(View v) {
                     Intent categories = new Intent(itemView.getContext(), SetsActivity.class);
                     categories.putExtra("title", title);
-                    categories.putExtra("sets", sets);
+                    categories.putExtra("position", position);
                     imageView.getContext().startActivity(categories);
                 }
             });

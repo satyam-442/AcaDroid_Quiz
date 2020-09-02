@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.RegisterFragment"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <RelativeLayout
+        android:id="@+id/registerLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:transitionName="logo_text">
+
+        <TextView
+            android:id="@+id/appname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/contrail_one"
+            android:text="AcaDroid Quiz"
+            android:textColor="@color/white"
+            android:textSize="45sp" />
+
+        <View
+            android:id="@+id/viewAppname"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_alignStart="@id/appname"
+            android:layout_alignEnd="@id/appname"
+            android:layout_below="@id/appname"/>
+
+        <TextView
+            android:id="@+id/appslogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/martel_sans_extralight"
+            android:text="develop every second"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_alignStart="@id/appname"
+            android:layout_alignEnd="@id/appname"
+            android:layout_marginTop="2dp"
+            android:layout_below="@id/viewAppname"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:gravity="center|top">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/cantora_one"
+            android:gravity="center"
+            android:layout_marginTop="1dp"
+            android:text="Fill the detail's below to Create Account"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:transitionName="logo_text"/>
+
+        <LinearLayout
+            android:id="@+id/registerLinear"
+            android:transitionName="details_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:background="@drawable/auth_design">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/martel_sans_bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Register Yourself"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:textSize="26sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/nameRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:inputType="textPersonName"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phoneRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone no."
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="7dp"
+                android:id="@+id/emailRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="E-mail"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                android:layout_marginTop="7dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/registerBtnF"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="SIGN UP"
+                android:elevation="15dp"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:fontFamily="@font/cantora_one"
+                android:background="@drawable/btn_two_design"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/registerLinear1"
+            android:transitionName="details_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:background="@drawable/auth_design">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/martel_sans_bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Add username"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:textSize="26sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/cantora_one"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Almost done!\n Please add good and unique username"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:textSize="21sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/usernameRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Userame"
+                    android:inputType="textPersonName"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/registerUsernameBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="PROCEED"
+                android:elevation="15dp"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:fontFamily="@font/cantora_one"
+                android:background="@drawable/btn_two_design"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/registerLinear2"
+            android:transitionName="details_block"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/textView"
+            android:layout_marginTop="35dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:background="@drawable/auth_design">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/martel_sans_bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Final detail's"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:textSize="26sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/cantora_one"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Almost done!\n Add Address, Dob, Gender"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:textSize="21sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/addressRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Gender:"
+                    android:textSize="18sp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/cantora_one"/>
+
+                <Spinner
+                    android:id="@+id/selectGenderSpinner"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:padding="2dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/registerProfileBtn"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="COMPLETE"
+                android:elevation="15dp"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:fontFamily="@font/cantora_one"
+                android:background="@drawable/btn_two_design"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:transitionName="details_block">
+
+        <TextView
+            android:id="@+id/alreadyHaveAcc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already, have an account!"
+            android:gravity="center"
+            android:textSize="23sp"
+            android:fontFamily="@font/cantora_one"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+</LinearLayout>

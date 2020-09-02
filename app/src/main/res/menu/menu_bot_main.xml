@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="#fff">
+
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="HOME"
+        app:cnb_backgroundColor="#E5CBB2"
+        app:cnb_iconColor="#fff"
+        app:cnb_textColor="#fff" />
+
+    <item
+        android:id="@+id/bookmark"
+        android:icon="@drawable/bookmark_bn"
+        android:title="BOOKMARK"
+        app:cnb_backgroundColor="#E5CBB2"
+        app:cnb_iconColor="#fff"
+        app:cnb_textColor="#fff" />
+
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/account"
+        android:title="ACCOUNT"
+        app:cnb_backgroundColor="#E5CBB2"
+        app:cnb_iconColor="#fff"
+        app:cnb_textColor="#fff" />
+</menu>

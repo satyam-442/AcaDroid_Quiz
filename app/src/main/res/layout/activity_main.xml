@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,81 +8,115 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/bottom_nav_main">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <FrameLayout
-                android:id="@+id/frameLayout"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginBottom="72dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintBottom_toTopOf="@+id/buttonOne"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/amarante"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:textSize="35sp"
-                    android:textStyle="bold"/>
-
-            </FrameLayout>
-
-            <Button
-                android:id="@+id/buttonOne"
-                android:layout_width="180dp"
+            <ScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="28dp"
-                android:background="@drawable/btn_one_design"
-                android:fontFamily="@font/cantora_one"
-                android:text="S t a r t   H e r e"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonTwo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                android:onClick="StartQuizProcess"/>
+                android:fillViewport="true"
+                android:layout_weight="1">
 
-            <Button
-                android:id="@+id/buttonTwo"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/btn_two_design"
-                android:textAllCaps="false"
-                android:onClick="StartBookmarkPage"
-                android:fontFamily="@font/cantora_one"
-                android:text="B o o k m a r k s"
-                android:drawableRight="@drawable/bookmark_all"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textColor="@color/white"
-                android:textSize="20sp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <FrameLayout
+                        android:id="@+id/frameLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="72dp"
+                        android:background="@color/colorPrimary"
+                        app:layout_constraintBottom_toTopOf="@+id/buttonOne"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-    </ScrollView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/amarante"
+                            android:text="@string/app_name"
+                            android:textColor="@color/white"
+                            android:textSize="35sp"
+                            android:textStyle="bold"/>
 
-    <com.google.android.gms.ads.AdView
+                    </FrameLayout>
+
+                    <Button
+                        android:id="@+id/buttonOne"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="28dp"
+                        android:background="@drawable/btn_one_design"
+                        android:fontFamily="@font/cantora_one"
+                        android:text="S t a r t   H e r e"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/buttonTwo"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:onClick="StartQuizProcess"/>
+
+                    <Button
+                        android:id="@+id/buttonTwo"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:background="@drawable/btn_two_design"
+                        android:textAllCaps="false"
+                        android:onClick="StartBookmarkPage"
+                        android:fontFamily="@font/cantora_one"
+                        android:text="B o o k m a r k s"
+                        android:drawableRight="@drawable/bookmark_all"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"/>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+
+        </LinearLayout>-->
+
+    </FrameLayout>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottom_nav_main"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/rounded"
+        android:elevation="16dp"
+        android:gravity="center"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        app:cnb_menuResource="@menu/menu_bot_main"/>
+
+    <!--<com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,7 +126,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonTwo">
+    </com.google.android.gms.ads.AdView>-->
 
-    </com.google.android.gms.ads.AdView>
-
-</LinearLayout>
+</RelativeLayout>

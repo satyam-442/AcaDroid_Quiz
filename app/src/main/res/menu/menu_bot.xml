@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="#fff">
+
+    <item
+        android:id="@+id/login"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="LOGIN"
+        app:cnb_backgroundColor="#E5CBB2"
+        app:cnb_iconColor="#fff"
+        app:cnb_textColor="#fff" />
+
+    <item
+        android:id="@+id/register"
+        android:icon="@drawable/account"
+        android:title="REGISTER"
+        app:cnb_backgroundColor="#E5CBB2"
+        app:cnb_iconColor="#fff"
+        app:cnb_textColor="#fff" />
+
+</menu>

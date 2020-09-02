@@ -97,7 +97,7 @@
                     android:fontFamily="@font/martel_sans_bold"
                     android:text="Option One"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <Button
@@ -109,7 +109,7 @@
                     android:fontFamily="@font/martel_sans_bold"
                     android:text="Option Two"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <Button
@@ -121,7 +121,7 @@
                     android:fontFamily="@font/martel_sans_bold"
                     android:text="Option Three"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
 
                 <Button
@@ -133,7 +133,7 @@
                     android:fontFamily="@font/martel_sans_bold"
                     android:text="Option Four"
                     android:textAllCaps="false"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
             </LinearLayout>
 

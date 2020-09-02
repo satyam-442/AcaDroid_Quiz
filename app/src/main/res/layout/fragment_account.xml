@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.AccountFragment"
+    android:weightSum="10"
+    android:orientation="vertical"
+    android:background="#26000000">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+    <RelativeLayout
+        android:id="@+id/loginLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_gravity="center"
+        android:layout_margin="25dp"
+        android:background="@drawable/account_design">
+
+        <ImageView
+            android:id="@+id/editProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/edit"
+            android:padding="8dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/accountImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@id/editProfile"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginTop="-10dp"
+            android:src="@drawable/default_avatar"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/accountName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountImage"
+            android:layout_marginTop="8dp"
+            android:text="Shivram Tripathi"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/doppio_one"/>
+
+        <TextView
+            android:id="@+id/accountUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountName"
+            android:layout_marginTop="2dp"
+            android:text="@string/usersname"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:fontFamily="@font/martel_sans_extralight"/>
+
+        <LinearLayout
+            android:id="@+id/accountProfileLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountUsername"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/account_btns">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/account_black"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/accountProfileBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="My Profile"
+                android:textAllCaps="false"
+                android:gravity="start|center_vertical"
+                android:paddingStart="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/account_btns"
+                android:fontFamily="@font/martel_sans_bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountContactLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountProfileLL"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/account_btns">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/contactus"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/accountContactBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Contact Us"
+                android:textAllCaps="false"
+                android:gravity="start|center_vertical"
+                android:paddingStart="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/account_btns"
+                android:fontFamily="@font/martel_sans_bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountFeedbackLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountContactLL"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/account_btns">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/feedback"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/accountFeedbackBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Feedback"
+                android:textAllCaps="false"
+                android:gravity="start|center_vertical"
+                android:paddingStart="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/account_btns"
+                android:fontFamily="@font/martel_sans_bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountAboutLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountFeedbackLL"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/account_btns">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/about"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/accountAboutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="About Us"
+                android:textAllCaps="false"
+                android:gravity="start|center_vertical"
+                android:paddingStart="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/account_btns"
+                android:fontFamily="@font/martel_sans_bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/accountLogoutLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accountAboutLL"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/account_btns">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logoutblack"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/accountLogoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:gravity="start|center_vertical"
+                android:paddingStart="15dp"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/account_btns"
+                android:fontFamily="@font/martel_sans_bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="version : 1.0.0"
+            android:textColor="#000"
+            android:fontFamily="@font/martel_sans_extralight"
+            android:textAllCaps="true"
+            android:gravity="center"
+            android:padding="5dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

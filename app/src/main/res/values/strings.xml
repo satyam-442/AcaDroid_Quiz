@@ -12,5 +12,9 @@
     <string name="password">Password</string>
     <string name="sign_up">Sign up</string>
     <string name="forget_password">Forget Password.?</string>
+    <string name="username">\@innocentcoder</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="usersname">\@innocentcoder</string>
+    <string name="partner"><![CDATA[Satyam Tiwari & Zaheer Ahmed Ansari]]></string>
 
 </resources>

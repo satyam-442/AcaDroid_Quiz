@@ -47,8 +47,7 @@ public class QuestionsActivity extends AppCompatActivity {
     Button shareBtn, nextBtn;
     int count = 0, position = 0, score = 0;
     List<QuestionM> list;
-    String category;
-    int setsNo;
+    String setId;
     Dialog loadingBar;
     DatabaseReference questionRef;
 
@@ -69,7 +68,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
         loadAds();
 
-        questionRef = FirebaseDatabase.getInstance().getReference().child("Sets");
+        questionRef = FirebaseDatabase.getInstance().getReference();
 
         preferences = getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         editor = preferences.edit();
@@ -81,8 +80,7 @@ public class QuestionsActivity extends AppCompatActivity {
         loadingBar.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         loadingBar.setCancelable(false);
 
-        category = getIntent().getStringExtra("category");
-        setsNo = getIntent().getIntExtra("sets", 1);
+        setId = getIntent().getStringExtra("setId");
 
         questionText = findViewById(R.id.questionText);
         indicatorText = findViewById(R.id.indicatorText);
@@ -94,11 +92,19 @@ public class QuestionsActivity extends AppCompatActivity {
 
         loadingBar.show();
 
-        questionRef.child(category).child("questions").orderByChild("setNo").equalTo(setsNo).addListenerForSingleValueEvent(new ValueEventListener() {
+        questionRef
+                .child("Sets").child(setId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    list.add(dataSnapshot1.getValue(QuestionM.class));
+                    String id = dataSnapshot1.getKey();
+                    String quest = dataSnapshot1.child("question").getValue().toString();
+                    String optA = dataSnapshot1.child("optiona").getValue().toString();
+                    String optB = dataSnapshot1.child("optionb").getValue().toString();
+                    String optC = dataSnapshot1.child("optionc").getValue().toString();
+                    String optD = dataSnapshot1.child("optiond").getValue().toString();
+                    String correctAnswer = dataSnapshot1.child("correctAns").getValue().toString();
+                    list.add(new QuestionM(id, quest, optA, optB, optC, optD, correctAnswer, setId));
                 }
                 if (list.size() > 0) {
                     for (int i = 0; i < 4; i++) {
@@ -298,7 +304,7 @@ public class QuestionsActivity extends AppCompatActivity {
         for (QuestionM questionM : bmList) {
             if (questionM.getQuestionn().equals(list.get(position).getQuestionn())
                     && questionM.getCorrectAnss().equals(list.get(position).getCorrectAnss())
-                    && questionM.getSetNoo() == list.get(position).getSetNoo()) {
+                    && questionM.getSetIdd().equals(list.get(position).getSetIdd())) {
                 matched = true;
                 matchedQuestPosition = i;
             }

@@ -1,5 +1,5 @@
 package com.example.acadroidquiz;
-
+//25:40
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,11 +10,14 @@ import android.widget.GridView;
 
 import com.example.acadroidquiz.Adapter.Grid;
 
+import java.util.List;
+
 public class SetsActivity extends AppCompatActivity {
 
     GridView gridView;
     Grid adapter ;
     String setsNo;
+    List<String> sets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,8 @@ public class SetsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(getIntent().getStringExtra("title"));
 
         gridView = findViewById(R.id.grid_view);
-        adapter = new Grid(getIntent().getIntExtra("sets",0),getIntent().getStringExtra("title"));
+        sets = CategoriesActivity.list.get(getIntent().getIntExtra("position", 0)).getSetss();
+        adapter = new Grid(sets,getIntent().getStringExtra("title"));
         gridView.setAdapter(adapter);
     }
 

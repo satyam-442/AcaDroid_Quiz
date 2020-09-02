@@ -10,19 +10,21 @@ import android.widget.TextView;
 import com.example.acadroidquiz.QuestionsActivity;
 import com.example.acadroidquiz.R;
 
+import java.util.List;
+
 public class Grid extends BaseAdapter {
 
-    int sets = 0;
+    List<String> sets;
     String category;
 
-    public Grid(int sets, String category) {
+    public Grid(List<String> sets, String category) {
         this.sets = sets;
         this.category = category;
     }
 
     @Override
     public int getCount() {
-        return sets;
+        return sets.size();
     }
 
     @Override
@@ -52,7 +54,7 @@ public class Grid extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), QuestionsActivity.class);
                 intent.putExtra("category", category);
-                intent.putExtra("sets", position+1);
+                intent.putExtra("setId", sets.get(position));
                 parent.getContext().startActivity(intent);
             }
         });
