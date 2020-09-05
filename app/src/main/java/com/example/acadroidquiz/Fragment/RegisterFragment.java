@@ -2,16 +2,22 @@ package com.example.acadroidquiz.Fragment;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +30,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.acadroidquiz.HomeActivity;
 import com.example.acadroidquiz.MainActivity;
 import com.example.acadroidquiz.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,8 +39,11 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -123,6 +133,47 @@ public class RegisterFragment extends Fragment {
     private void AllowUserToAddUsername() {
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!isConnected(getActivity())) {
+            showCustomDialog();
+        }
+    }
+
+
+    private boolean isConnected(Context ctx) {
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo wifiCon = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobileCon = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+        if ((wifiCon != null && wifiCon.isConnected()) || (mobileCon != null && mobileCon.isConnected())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private void showCustomDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Please get connect to internet to proceed further!")
+                .setCancelable(false)
+                .setPositiveButton("Connect", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.exit(0);
+                    }
+                });
+    }
+
     private Boolean validateEmail() {
         String valName = Email.getEditText().getText().toString();
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -210,7 +261,94 @@ public class RegisterFragment extends Fragment {
                                                 Toast.makeText(getActivity(), "Username empty", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 loadingBar.show();
-                                                HashMap<String, Object> usersUsernameMap = new HashMap<>();
+
+                                                usersUsernameRef.addValueEventListener(new ValueEventListener() {
+                                                    @Override
+                                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                        if (snapshot.hasChild(username))
+                                                        {
+                                                            Toast.makeText(getActivity(), "Username already present!", Toast.LENGTH_SHORT).show();
+                                                            loadingBar.dismiss();
+                                                        }
+                                                        else
+                                                        {
+                                                            loadingBar.show();
+                                                            HashMap<String, Object> usersUsernameMap = new HashMap<>();
+                                                            usersUsernameMap.put("Name", name);
+                                                            usersUsernameMap.put("Username", username);
+                                                            usersUsernameMap.put("Phone", phone);
+                                                            usersUsernameMap.put("Email", email);
+                                                            usersUsernameMap.put("uid", uid);
+                                                            usersUsernameMap.put("password", password);
+                                                            usersUsernameMap.put("image", "default");
+                                                            usersUsernameRef.child(username).updateChildren(usersUsernameMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                @Override
+                                                                public void onComplete(@NonNull Task<Void> task) {
+                                                                    if (task.isSuccessful()) {
+                                                                        final HashMap<String, Object> usersMap = new HashMap<>();
+                                                                        usersMap.put("Username", username);
+                                                                        usersRef.child(uid).updateChildren(usersMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                            @Override
+                                                                            public void onComplete(@NonNull Task<Void> task) {
+                                                                                if (task.isSuccessful()) {
+                                                                                    Toast.makeText(getActivity(), "Updated", Toast.LENGTH_SHORT).show();
+                                                                                    loadingBar.dismiss();
+                                                                                    registerLinear.setVisibility(View.INVISIBLE);
+                                                                                    registerLinear1.setVisibility(View.INVISIBLE);
+                                                                                    registerLinear2.setVisibility(View.VISIBLE);
+                                                                                    registerProfileBtn.setOnClickListener(new View.OnClickListener() {
+                                                                                        @Override
+                                                                                        public void onClick(View v) {
+                                                                                            final String address = Address.getEditText().getText().toString();
+                                                                                            if (TextUtils.isEmpty(address)) {
+                                                                                                Toast.makeText(getActivity(), "Address empty", Toast.LENGTH_SHORT).show();
+                                                                                            } else {
+                                                                                                loadingBar.show();
+                                                                                                HashMap<String, Object> profileMap = new HashMap<>();
+                                                                                                profileMap.put("Address", address);
+                                                                                                profileMap.put("Gender", gender);
+                                                                                                usersRef.child(uid).updateChildren(profileMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                                                    @Override
+                                                                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                                                                        if (task.isSuccessful()) {
+                                                                                                            loadingBar.dismiss();
+                                                                                                            SendToMainActivity();
+                                                                                                        } else {
+                                                                                                            String msg = task.getException().getMessage();
+                                                                                                            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                                                                                                            loadingBar.dismiss();
+                                                                                                        }
+                                                                                                    }
+                                                                                                });
+                                                                                            }
+                                                                                        }
+                                                                                    });
+                                                                                } else {
+                                                                                    String msg = task.getException().getMessage();
+                                                                                    Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                                                                                    loadingBar.dismiss();
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                        loadingBar.dismiss();
+                                                                        //SendToMainActivity();
+                                                                    } else {
+                                                                        String msg = task.getException().getMessage();
+                                                                        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+                                                                        loadingBar.dismiss();
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+
+                                                    @Override
+                                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                                    }
+                                                });
+
+                                                /*HashMap<String, Object> usersUsernameMap = new HashMap<>();
                                                 usersUsernameMap.put("Name", name);
                                                 usersUsernameMap.put("Username", username);
                                                 usersUsernameMap.put("Phone", phone);
@@ -275,7 +413,7 @@ public class RegisterFragment extends Fragment {
                                                             loadingBar.dismiss();
                                                         }
                                                     }
-                                                });
+                                                })*/;
                                             }
                                         }
                                     });

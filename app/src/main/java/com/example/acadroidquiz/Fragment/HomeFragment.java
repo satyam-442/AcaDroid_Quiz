@@ -13,9 +13,11 @@ import android.widget.RelativeLayout;
 
 import com.example.acadroidquiz.CategoriesActivity;
 import com.example.acadroidquiz.R;
+import com.example.acadroidquiz.SetsActivity;
+import com.example.acadroidquiz.SpeedmathSetsActivity;
 
 public class HomeFragment extends Fragment {
-    RelativeLayout categoryRelative;
+    RelativeLayout categoryRelative, speedMathRelative;
     public HomeFragment() { }
 
     @Override
@@ -30,6 +32,16 @@ public class HomeFragment extends Fragment {
                 startActivity(categories);
             }
         });
+
+        speedMathRelative = view.findViewById(R.id.categorySpeedMath);
+        speedMathRelative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent setsActivity = new Intent(getActivity(), SpeedmathSetsActivity.class);
+                startActivity(setsActivity);
+            }
+        });
+
         return view;
     }
 }
