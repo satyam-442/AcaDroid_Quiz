@@ -1,4 +1,4 @@
-package com.example.acadroidquiz;
+package com.example.acadroidquiz.Category;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,15 +11,15 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.acadroidquiz.Adapter.Category;
+import com.example.acadroidquiz.HomeActivity;
 import com.example.acadroidquiz.Modal.CategoryModel;
-import com.example.acadroidquiz.Modal.CategoryModel;
+import com.example.acadroidquiz.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.firebase.auth.FirebaseAuth;

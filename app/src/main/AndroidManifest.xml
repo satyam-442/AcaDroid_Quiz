@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SpeedmathSetsActivity"></activity>
+        <activity android:name=".TrainBrain.TrainBrainActivity"></activity>
+        <activity android:name=".Reasoning.ReasoningActivity" />
+        <activity android:name=".Logical.LogicalActivity" />
+        <activity android:name=".WeeklyTest.WeeklyTestActivity" />
+        <activity android:name=".SpeedMath.SpeedmathActivity" />
+        <activity android:name=".SpeedMath.SpeedmathSetsActivity" />
         <activity android:name=".EditActivity" />
         <activity android:name=".HomeActivity">
             <intent-filter>
@@ -25,8 +30,8 @@
         <activity android:name=".BookmarkActivity" />
         <activity android:name=".ScoreActivity" />
         <activity android:name=".QuestionsActivity" />
-        <activity android:name=".SetsActivity" />
-        <activity android:name=".CategoriesActivity" />
+        <activity android:name=".Category.SetsActivity" />
+        <activity android:name=".Category.CategoriesActivity" />
         <activity android:name=".MainActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"

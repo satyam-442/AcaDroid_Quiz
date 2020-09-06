@@ -1,4 +1,4 @@
-package com.example.acadroidquiz;
+package com.example.acadroidquiz.Category;
 //25:40
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.GridView;
 
 import com.example.acadroidquiz.Adapter.Grid;
+import com.example.acadroidquiz.R;
 
 import java.util.List;
 

@@ -92,8 +92,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
         loadingBar.show();
 
-        questionRef
-                .child("Sets").child(setId).addListenerForSingleValueEvent(new ValueEventListener() {
+        questionRef.child("Sets").child(setId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {

@@ -1,14 +1,16 @@
-package com.example.acadroidquiz;
+package com.example.acadroidquiz.Reasoning;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SpeedmathSetsActivity extends AppCompatActivity {
+import com.example.acadroidquiz.R;
+
+public class ReasoningActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_speedmath_sets);
+        setContentView(R.layout.activity_reasoning);
     }
 }

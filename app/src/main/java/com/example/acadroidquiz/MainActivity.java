@@ -11,13 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.acadroidquiz.Category.CategoriesActivity;
 import com.example.acadroidquiz.Fragment.AccountFragment;
 import com.example.acadroidquiz.Fragment.BookmarkFragment;
 import com.example.acadroidquiz.Fragment.HomeFragment;
-import com.example.acadroidquiz.Fragment.LoginFragment;
-import com.example.acadroidquiz.Fragment.RegisterFragment;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;

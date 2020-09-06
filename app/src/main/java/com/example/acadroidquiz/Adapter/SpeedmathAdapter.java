@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.acadroidquiz.Modal.CategoryModel;
+import com.example.acadroidquiz.Modal.SpeedmathModel;
 import com.example.acadroidquiz.R;
-import com.example.acadroidquiz.Category.SetsActivity;
+import com.example.acadroidquiz.SpeedMath.SpeedmathSetsActivity;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Category extends RecyclerView.Adapter<Category.viewHolder> {
+public class SpeedmathAdapter extends RecyclerView.Adapter<SpeedmathAdapter.viewHolder> {
 
-    private List<CategoryModel> categoryList;
+    private List<SpeedmathModel> categoryList;
 
-    public Category(List<CategoryModel> categoryList) {
+    public SpeedmathAdapter(List<SpeedmathModel> categoryList) {
         this.categoryList = categoryList;
     }
 
@@ -62,7 +62,7 @@ public class Category extends RecyclerView.Adapter<Category.viewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent categories = new Intent(itemView.getContext(), SetsActivity.class);
+                    Intent categories = new Intent(itemView.getContext(), SpeedmathSetsActivity.class);
                     categories.putExtra("title", title);
                     categories.putExtra("position", position);
                     imageView.getContext().startActivity(categories);

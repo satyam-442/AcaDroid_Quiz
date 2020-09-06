@@ -8,16 +8,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 
-import com.example.acadroidquiz.CategoriesActivity;
+import com.example.acadroidquiz.Category.CategoriesActivity;
+import com.example.acadroidquiz.Logical.LogicalActivity;
 import com.example.acadroidquiz.R;
-import com.example.acadroidquiz.SetsActivity;
-import com.example.acadroidquiz.SpeedmathSetsActivity;
+import com.example.acadroidquiz.Reasoning.ReasoningActivity;
+import com.example.acadroidquiz.SpeedMath.SpeedmathActivity;
+import com.example.acadroidquiz.TrainBrain.TrainBrainActivity;
+import com.example.acadroidquiz.WeeklyTest.WeeklyTestActivity;
 
 public class HomeFragment extends Fragment {
-    RelativeLayout categoryRelative, speedMathRelative;
+    RelativeLayout categoryRelative, trainBrainRelative,  weeklyTestRelative, logicalRelative, speedMathRelative, reasoningRelative;
     public HomeFragment() { }
 
     @Override
@@ -37,11 +39,46 @@ public class HomeFragment extends Fragment {
         speedMathRelative.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent setsActivity = new Intent(getActivity(), SpeedmathSetsActivity.class);
+                Intent setsActivity = new Intent(getActivity(), SpeedmathActivity.class);
                 startActivity(setsActivity);
             }
         });
 
+        trainBrainRelative = view.findViewById(R.id.categoryTrainBrain);
+        trainBrainRelative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent trainbrain = new Intent(getActivity(), TrainBrainActivity.class);
+                startActivity(trainbrain);
+            }
+        });
+
+        weeklyTestRelative = view.findViewById(R.id.categoryWeeklyTest);
+        weeklyTestRelative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent weeklytest = new Intent(getActivity(), WeeklyTestActivity.class);
+                startActivity(weeklytest);
+            }
+        });
+
+        logicalRelative = view.findViewById(R.id.categoryLogical);
+        logicalRelative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent logical = new Intent(getActivity(), LogicalActivity.class);
+                startActivity(logical);
+            }
+        });
+
+        reasoningRelative = view.findViewById(R.id.categoryReasoning);
+        reasoningRelative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent reasoning = new Intent(getActivity(), ReasoningActivity.class);
+                startActivity(reasoning);
+            }
+        });
         return view;
     }
 }
