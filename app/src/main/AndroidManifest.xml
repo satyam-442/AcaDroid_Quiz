@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TrainBrain.TrainBrainActivity"></activity>
+        <activity android:name=".Logical.LogicalSetsActivity"></activity>
+        <activity android:name=".TrainBrain.TrainBrainActivity" />
         <activity android:name=".Reasoning.ReasoningActivity" />
         <activity android:name=".Logical.LogicalActivity" />
         <activity android:name=".WeeklyTest.WeeklyTestActivity" />

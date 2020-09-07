@@ -19,7 +19,7 @@ import com.example.acadroidquiz.TrainBrain.TrainBrainActivity;
 import com.example.acadroidquiz.WeeklyTest.WeeklyTestActivity;
 
 public class HomeFragment extends Fragment {
-    RelativeLayout categoryRelative, trainBrainRelative,  weeklyTestRelative, logicalRelative, speedMathRelative, reasoningRelative;
+    RelativeLayout categoryRelative, trainBrainRelative,  weeklyTestRelative, logicalRelative, speedMathRelative;
     public HomeFragment() { }
 
     @Override
@@ -71,14 +71,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        reasoningRelative = view.findViewById(R.id.categoryReasoning);
-        reasoningRelative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent reasoning = new Intent(getActivity(), ReasoningActivity.class);
-                startActivity(reasoning);
-            }
-        });
         return view;
     }
 }
