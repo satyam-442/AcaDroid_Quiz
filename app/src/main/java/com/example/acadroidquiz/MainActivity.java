@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.example.acadroidquiz.Category.CategoriesActivity;
 import com.example.acadroidquiz.Fragment.AccountFragment;
 import com.example.acadroidquiz.Fragment.BookmarkFragment;
+import com.example.acadroidquiz.Fragment.ContactusFragment;
+import com.example.acadroidquiz.Fragment.FeedbackFragment;
 import com.example.acadroidquiz.Fragment.HomeFragment;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -26,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -43,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         mAuth = FirebaseAuth.getInstance();
 
         //DRAWER NAVIGATION CODE
-        drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
 
         //TOOLBAR CODE
@@ -58,28 +60,27 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        //navigationView.setNavigationItemSelectedListener(this);
+        //navigationView.setCheckedItem(R.id.home_main);
 
-        bottomNavigationView = findViewById(R.id.bottom_nav_main);
         if (savedInstanceState == null) {
-            bottomNavigationView.setItemSelected(R.id.home, true);
+            navigationView.setCheckedItem(R.id.home_main);
             fragmentManager = getSupportFragmentManager();
             HomeFragment homeFragment = new HomeFragment();
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, homeFragment).commit();
         }
 
-        bottomNavigationView.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+        /*bottomNavigationView.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
                 Fragment fragment = null;
                 switch (i) {
-                    case R.id.home:
+                    case R.id.home_main:
                         fragment = new HomeFragment();
                         break;
-                    case R.id.bookmark:
+                    case R.id.bookmark_main:
                         fragment = new BookmarkFragment();
                         break;
-                    case R.id.account:
+                    case R.id.profile_main:
                         fragment = new AccountFragment();
                         break;
                 }
@@ -91,12 +92,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     Toast.makeText(MainActivity.this, "ERROR OCCURRED...", Toast.LENGTH_SHORT).show();
                 }
             }
-        });
-
-
-
+        });*/
         MobileAds.initialize(this);
-
         //loadAds();
     }
 
@@ -104,20 +101,37 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment selectedFragment = null;
         switch (menuItem.getItemId()) {
-            case R.id.home:
+            case R.id.home_main:
                 selectedFragment = new HomeFragment();
                 break;
 
-            case R.id.bookmark:
+            case R.id.bookmark_main:
                 selectedFragment = new BookmarkFragment();
                 break;
 
-            case R.id.account:
+            case R.id.profile_main:
                 selectedFragment = new AccountFragment();
+                break;
+
+            case R.id.contactus_main:
+                selectedFragment = new ContactusFragment();
+                break;
+
+            case R.id.feedback_main:
+                selectedFragment = new FeedbackFragment();
+                break;
+
+            case R.id.logout_main:
+                mAuth.signOut();
+                Intent logout = new Intent(MainActivity.this, HomeActivity.class);
+                logout.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(logout);
+                finish();
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                selectedFragment).commit();
+                selectedFragment).addToBackStack(null).commit();
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -135,8 +149,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-
-            super.onBackPressed();
+            super.onBackPressed(
+            );
         }
     }
 

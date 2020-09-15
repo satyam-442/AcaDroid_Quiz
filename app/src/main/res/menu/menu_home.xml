@@ -9,11 +9,15 @@
         <item
             android:id="@+id/profile_main"
             android:icon="@drawable/profile_icon"
-            android:title="Profile" />
+            android:title="Account" />
+
+        <item
+            android:id="@+id/bookmark_main"
+            android:icon="@drawable/bookmarkimg"
+            android:title="Bookmark" />
     </group>
 
     <item android:title="Category">
-
         <menu>
             <group android:checkableBehavior="single">
                 <item
@@ -44,20 +48,27 @@
     <item android:title="Communication">
         <menu>
 
-            <item
-                android:id="@+id/contactus_main"
-                android:icon="@drawable/contactus_icon"
-                android:title="Contact Us" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/contactus_main"
+                    android:icon="@drawable/contactus_icon"
+                    android:title="Contact Us" />
 
-            <item
-                android:id="@+id/feedback_main"
-                android:icon="@drawable/feedback_icon"
-                android:title="Feedback" />
+                <item
+                    android:id="@+id/feedback_main"
+                    android:icon="@drawable/feedback_icon"
+                    android:title="Feedback" />
 
-            <item
-                android:id="@+id/share_main"
-                android:icon="@drawable/share_icon"
-                android:title="Share" />
+                <item
+                    android:id="@+id/share_main"
+                    android:icon="@drawable/share_icon"
+                    android:title="Share" />
+
+                <item
+                    android:id="@+id/logout_main"
+                    android:icon="@drawable/logoutblack"
+                    android:title="Logout" />
+            </group>
 
         </menu>
     </item>

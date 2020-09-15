@@ -27,7 +27,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
+            android:background="#00FFFFFF"
+            app:navigationIcon="@drawable/menu"
             android:minHeight="?attr/actionBarSize"
             app:titleTextColor="@color/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -124,7 +125,7 @@
 
         </FrameLayout>
 
-        <com.ismaeldivita.chipnavigation.ChipNavigationBar
+<!--        <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:id="@+id/bottom_nav_main"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -136,7 +137,7 @@
             android:gravity="center"
             android:paddingStart="25dp"
             android:paddingEnd="25dp"
-            app:cnb_menuResource="@menu/menu_bot_main" />
+            app:cnb_menuResource="@menu/menu_bot_main" />-->
 
     </RelativeLayout>
 

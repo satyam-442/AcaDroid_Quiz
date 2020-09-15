@@ -52,9 +52,9 @@ public class FeedbackFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feedback, container, false);
 
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
+/*        Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Feedback");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Feedback");*/
 
         mAuth = FirebaseAuth.getInstance();
         currentUserId = mAuth.getCurrentUser().getUid();
