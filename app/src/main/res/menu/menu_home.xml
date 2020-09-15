@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_main"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/profile_main"
+            android:icon="@drawable/profile_icon"
+            android:title="Profile" />
+    </group>
+
+    <item android:title="Category">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/history_main"
+                    android:icon="@drawable/history"
+                    android:title="History" />
+
+                <item
+                    android:id="@+id/science_main"
+                    android:icon="@drawable/science"
+                    android:title="Science" />
+
+                <item
+                    android:id="@+id/economy_main"
+                    android:icon="@drawable/economy"
+                    android:title="Economy" />
+
+                <item
+                    android:id="@+id/geography_main"
+                    android:icon="@drawable/geography"
+                    android:title="Geography" />
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item android:title="Communication">
+        <menu>
+
+            <item
+                android:id="@+id/contactus_main"
+                android:icon="@drawable/contactus_icon"
+                android:title="Contact Us" />
+
+            <item
+                android:id="@+id/feedback_main"
+                android:icon="@drawable/feedback_icon"
+                android:title="Feedback" />
+
+            <item
+                android:id="@+id/share_main"
+                android:icon="@drawable/share_icon"
+                android:title="Share" />
+
+        </menu>
+    </item>
+</menu>

@@ -9,6 +9,11 @@
     <string name="skip">Skip</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+
+    <string name="open_drawer">OPEN DRAWER</string>
+    <string name="close_drawer">CLOSE DRAWER</string>
+
+
     <string name="password">Password</string>
     <string name="sign_up">Sign up</string>
     <string name="forget_password">Forget Password.?</string>
@@ -18,5 +23,6 @@
     <string name="partner"><![CDATA[Satyam Tiwari & Zaheer Ahmed Ansari]]></string>
     <string name="edit_profile"><u>Edit Profile</u></string>
     <string name="logical_reasoning"><![CDATA[Logical & Reasoning]]></string>
+
 
 </resources>

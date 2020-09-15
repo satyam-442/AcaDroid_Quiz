@@ -48,10 +48,10 @@ public class BookmarkFragment extends Fragment {
         gson = new Gson();
 
         getBookmark();
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        /*Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Bookmarks");
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
 
         //loadAds();
 
