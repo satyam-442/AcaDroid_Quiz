@@ -29,12 +29,12 @@
             android:id="@+id/editProfile"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/edit"
-            android:padding="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"/>
+            android:padding="8dp"
+            android:src="@drawable/edit" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/accountImage"

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.LoginFragment"
     android:background="@drawable/background"
     android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="10"
+    tools:context=".Fragment.LoginFragment">
 
     <RelativeLayout
         android:id="@+id/loginLogo"
@@ -31,26 +30,26 @@
             android:id="@+id/viewAppname"
             android:layout_width="wrap_content"
             android:layout_height="1dp"
-            android:background="@color/white"
+            android:layout_below="@id/appname"
             android:layout_alignStart="@id/appname"
             android:layout_alignEnd="@id/appname"
-            android:layout_below="@id/appname"/>
+            android:background="@color/white" />
 
         <TextView
             android:id="@+id/appslogan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/martel_sans_extralight"
-            android:text="develop every second"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:textAllCaps="true"
+            android:layout_below="@id/viewAppname"
             android:layout_alignStart="@id/appname"
             android:layout_alignEnd="@id/appname"
             android:layout_marginTop="2dp"
-            android:layout_below="@id/viewAppname"
-            android:textStyle="bold"/>
+            android:fontFamily="@font/martel_sans_extralight"
+            android:gravity="center"
+            android:text="develop every second"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -65,68 +64,66 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="1dp"
             android:fontFamily="@font/cantora_one"
             android:gravity="center"
-            android:layout_marginTop="1dp"
             android:text="Fill the detail's below to Log In"
             android:textColor="@color/white"
             android:textSize="21sp"
-            android:transitionName="logo_text"/>
+            android:transitionName="logo_text" />
 
         <LinearLayout
             android:id="@+id/loginLinear"
-            android:transitionName="details_block"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/textView"
-            android:layout_marginTop="35dp"
             android:layout_marginStart="40dp"
+            android:layout_marginTop="35dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/auth_design"
+            android:orientation="vertical"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:orientation="vertical"
-            android:background="@drawable/auth_design">
+            android:transitionName="details_block">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/martel_sans_bold"
                 android:gravity="center"
-                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="Login Account"
                 android:textColor="@color/colorPrimary"
-                android:padding="5dp"
                 android:textSize="26sp" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_marginTop="15dp"
                 android:id="@+id/emailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                android:layout_marginTop="15dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="E-mail"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/passwordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
                 android:layout_marginTop="7dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:inputType="textPassword"/>
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -134,28 +131,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/cantora_one"
                 android:gravity="start"
-                android:layout_marginTop="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:text="In case you forgot password?"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"/>
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_marginTop="50dp"
-                android:text="sign IN"
+                android:background="@drawable/btn_two_design"
                 android:elevation="15dp"
-                android:textColor="@color/white"
-                android:textSize="23sp"
                 android:fontFamily="@font/cantora_one"
-                android:background="@drawable/btn_two_design"/>
+                android:gravity="center"
+                android:text="sign IN"
+                android:textColor="@color/white"
+                android:textSize="23sp" />
 
         </LinearLayout>
 
@@ -164,19 +161,19 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_gravity="center"
+        android:layout_weight="1"
         android:gravity="center"
         android:transitionName="details_block">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"
-            android:gravity="center"
-            android:textSize="23sp"
             android:fontFamily="@font/cantora_one"
-            android:textStyle="bold"/>
+            android:gravity="center"
+            android:text="Don't have an account?"
+            android:textSize="23sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </LinearLayout>

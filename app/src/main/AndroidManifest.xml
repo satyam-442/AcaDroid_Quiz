@@ -20,7 +20,8 @@
         <activity android:name=".SpeedMath.SpeedmathActivity" />
         <activity android:name=".SpeedMath.SpeedmathSetsActivity" />
         <activity android:name=".EditActivity" />
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
