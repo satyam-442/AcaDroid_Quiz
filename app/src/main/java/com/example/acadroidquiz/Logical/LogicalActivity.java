@@ -149,3 +149,5 @@ public class LogicalActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 }
+
+//Dummy text
